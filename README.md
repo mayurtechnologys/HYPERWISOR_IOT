@@ -2,7 +2,7 @@
 
 The **HYPERWISOR_IOT** library simplifies the integration of IoT capabilities into your Arduino projects, making it easier than ever to communicate with IoT platforms and send sensor data to remote servers. Whether you're working on a home automation system, industrial monitoring, or any IoT application, this library streamlines data transmission and interaction with cloud services.
 
-www.hyperwisor.com/
+www.hyperwisor.com/dashboard
 
 ## Key Features
 
