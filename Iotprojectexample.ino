@@ -4,7 +4,7 @@
 const char* ssid = "NIKOLA";        // Replace with your network SSID
 const char* password = "12345678";  // Replace with your network password
 
-const String apiKey = "39oUmvyoyegY4qg";
+const String apiKey = "39oUmvyoyegY4qg"; // get your APIKEY from www.hyperwisor.com/dashboard
 HYPERWISOR_IOT httpController(apiKey);
 
 void setup() {
