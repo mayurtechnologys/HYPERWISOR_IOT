@@ -50,9 +50,9 @@ void loop() {
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
-## License Apache License 2.0
+## License 
 
-This project is licensed under MIT Licence.
+This project is licensed under Apache License 2.0
 
 ---
 
