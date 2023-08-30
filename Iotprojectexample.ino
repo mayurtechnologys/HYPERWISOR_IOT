@@ -4,15 +4,18 @@
 const char* ssid = "NIKOLA";        // Replace with your network SSID
 const char* password = "12345678";  // Replace with your network password
 
-const String apiKey = "39oUmvyoyegY4qg"; // get your APIKEY from www.hyperwisor.com/dashboard
-HYPERWISOR_IOT httpController(apiKey);
+const String apiKey = "39oUmvyoyegY4qg";  // get your APIKEY from www.hyperwisor.com/dashboard
+HYPERWISOR_IOT httpController;
 
 void setup() {
   Serial.begin(115200);
   WiFi.begin(ssid, password);
+  httpController.init(apiKey);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
+
     Serial.println("Connecting to WiFi...");
+    WiFi.begin(ssid, password);
+    delay(1000);
   }
   Serial.println("Connected to WiFi");
 }
@@ -26,17 +29,17 @@ void loop() {
     // Call the library to send data
     String response = httpController.sendData(sensorData);
     Serial.println(response);
-    delay(1000); 
+    delay(1000);
 
     String senordata = httpController.getsensordata();
     Serial.println("sensordata:");
     Serial.println(senordata);
-    delay(1000); 
+    delay(1000);
 
     String chstatus = httpController.get_ch_status();
     Serial.println("ch_status:");
     Serial.println(chstatus);
-    delay(1000); 
+    delay(1000);
 
     String updateresponse = httpController.updateCH("ch1", "150");
     Serial.println("updateresponse:");
