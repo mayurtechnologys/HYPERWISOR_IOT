@@ -53,6 +53,7 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 ## License 
 
 This project is licensed under Apache License 2.0
+https://github.com/mayurtechnologys/HYPERWISOR_IOT/blob/511caaf0d2267d92be917e6460ba3d8986f8f686/Licence.md
 
 ---
 
