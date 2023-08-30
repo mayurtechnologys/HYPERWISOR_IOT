@@ -1,9 +1,20 @@
 #include "HYPERWISOR_IOT.h"
 
-HYPERWISOR_IOT::HYPERWISOR_IOT(String apiKey)
+HYPERWISOR_IOT::HYPERWISOR_IOT()
 {
-    _apiKey = apiKey;
+
+    initialized = false;
+
+    //_apiKey = apiKey;
 }
+
+
+void HYPERWISOR_IOT::init(String apiKey) {
+  _apiKey = apiKey;
+  
+  initialized = true;
+}
+
 
 String HYPERWISOR_IOT::sendData(String data)
 {
