@@ -13,6 +13,8 @@ public:
     String getsensordata();
     String get_ch_status();
     String updateCH(String CH_NAME, String CH_VALUE);
+    String get_schema();
+    String update_schema(String data);
 
 private:
     bool initialized;
