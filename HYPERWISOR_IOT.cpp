@@ -99,3 +99,51 @@ String HYPERWISOR_IOT::get_ch_status()
 
     return response; // Return the server response
 }
+
+
+String HYPERWISOR_IOT::update_schema(String data)
+{
+    String schemaapi = "https://nikolaindustry.wixsite.com/hyperwisor/_functions/updateschema?apikey=" + _apiKey + "&" + data;
+    HTTPClient http;
+    delay(100);
+    http.begin(schemaapi);
+    int httpCode = http.GET();
+
+    String response;
+
+    if (httpCode > 0)
+    {
+        response = http.getString();
+        // ... Continue with the rest of your function
+    }
+
+    http.end(); // Don't forget to close the connection
+
+    return response; // Return the server response
+}
+
+
+String HYPERWISOR_IOT::get_schema()
+{
+    String getlink = "https://nikolaindustry.wixsite.com/hyperwisor/_functions/getschema?apikey=" + _apiKey;
+    HTTPClient http;
+
+    delay(100);
+    http.begin(getlink);
+    int httpCode = http.GET();
+
+    String response;
+
+    if (httpCode > 0)
+    {
+        response = http.getString();
+        // ... Continue with the rest of your function
+    }
+    //Serial.println(getlink);
+    //Serial.println("HTTP getch Response Code: " + String(httpCode));
+    //Serial.println("Server Response: " + response);
+
+    http.end(); // Don't forget to close the connection
+
+    return response; // Return the server response
+}
