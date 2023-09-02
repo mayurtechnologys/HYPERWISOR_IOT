@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <HTTPClient.h>
+#include <ArduinoJson.h>
 
 class HYPERWISOR_IOT
 {
@@ -15,6 +16,8 @@ public:
     String updateCH(String CH_NAME, String CH_VALUE);
     String get_schema();
     String update_schema(String data);
+    String extractor(String data,String key);
+    
 
 private:
     bool initialized;
