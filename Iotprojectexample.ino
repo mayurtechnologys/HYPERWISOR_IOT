@@ -4,7 +4,7 @@
 const char* ssid = "NIKOLA";        // Replace with your network SSID
 const char* password = "12345678";  // Replace with your network password
 
-const String apiKey = "39oUmvyoyegY4qg";  // get your APIKEY from www.hyperwisor.com/dashboard
+const String apiKey = "8OGUIrwDojujJye";  // get your APIKEY from www.hyperwisor.com/dashboard
 HYPERWISOR_IOT httpController;
 
 void setup() {
@@ -21,11 +21,28 @@ void setup() {
 }
 
 void loop() {
+
+
+
   // Check if connected to Wi-Fi before sending data
   if (WiFi.status() == WL_CONNECTED) {
-    // Read sensor data and prepare a string with data
-    String sensorData = "HUMIDITY=" + String(readHumidity()) + "&TEMPERATURE=" + String(readTemperature()) + "&PH=" + String(readPH()) + "&DISTANCE=" + String(readDistance());
 
+    String jsonobj = httpController.get_schema();
+    Serial.println("schima");
+    //  Serial.println(chstatus);
+    delay(1000);
+
+    String extractedValue = httpController.extractor(jsonobj, "Angle");
+    Serial.println(extractedValue);
+    delay(1000);
+
+
+
+
+    String sensorData = "HUMIDITY=" + String(readHumidity()) + "&TEMPERATURE=" + String(readTemperature()) + "&PH=" + String(readPH()) + "&DISTANCE=" + String(readDistance());
+    String response = httpController.get_schema();
+    Serial.println(response);
+    delay(1000);
     // Call the library to send data
     String response = httpController.sendData(sensorData);
     Serial.println(response);
