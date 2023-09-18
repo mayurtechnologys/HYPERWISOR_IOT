@@ -28,7 +28,7 @@ void loop() {
     Serial.println("schima");
     Serial.println(jsonobj);
     delay(1000);
-    String res =  httpController.update_schema("ch1=0");
+    String res =  httpController.update_schema("ch1=0&ch2=255");
     Serial.println(res);
     delay(1000);
     String extractedValue = httpController.extractor(jsonobj, "ch4");
