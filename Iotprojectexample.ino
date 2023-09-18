@@ -39,32 +39,16 @@ void loop() {
       Serial.println("OFF");
     }
 
+    String sensorData = "HUMIDITY=" + String(readHumidity()) + "&TEMPERATURE=" + String(readTemperature()) + "&PH=" + String(readPH()) + "&DISTANCE=" + String(readDistance());
+  
+    String response = httpController.sendData(sensorData);
+    Serial.println(response);
+    delay(1000);
 
-
-
-    // String sensorData = "HUMIDITY=" + String(readHumidity()) + "&TEMPERATURE=" + String(readTemperature()) + "&PH=" + String(readPH()) + "&DISTANCE=" + String(readDistance());
-    // String response = httpController.get_schema();
-    // Serial.println(response);
-    // delay(1000);
-    // // Call the library to send data
-    // String response = httpController.sendData(sensorData);
-    // Serial.println(response);
-    // delay(1000);
-
-    // String senordata = httpController.getsensordata();
-    // Serial.println("sensordata:");
-    // Serial.println(senordata);
-    // delay(1000);
-
-    // String chstatus = httpController.get_ch_status();
-    // Serial.println("ch_status:");
-    // Serial.println(chstatus);
-    // delay(1000);
-
-    // String updateresponse = httpController.updateCH("ch1", "150");
-    // Serial.println("updateresponse:");
-    // Serial.println(updateresponse);
-
+    String senordata = httpController.getsensordata();
+    Serial.println("sensordata:");
+    Serial.println(senordata);
+    delay(1000);
     delay(2000);  // Adjust delay as needed
   } else {
     Serial.println("Not connected to WiFi");
