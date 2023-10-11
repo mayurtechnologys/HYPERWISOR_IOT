@@ -88,6 +88,48 @@ String HYPERWISOR_IOT::get_schema()
     return response;
 }
 
+String HYPERWISOR_IOT::runiftdt()
+{
+    String getlink = "https://nikolaindustry.wixsite.com/hyperwisor/_functions/runifdt?apikey=" + _apiKey;
+    HTTPClient http;
+
+    delay(100);
+    http.begin(getlink);
+    int httpCode = http.GET();
+
+    String response;
+
+    if (httpCode > 0)
+    {
+        response = http.getString();
+    }
+
+    http.end();
+
+    return response;
+}
+
+String HYPERWISOR_IOT::runscheule()
+{
+    String getlink = "https://nikolaindustry.wixsite.com/hyperwisor/_functions/runschedule?apikey=" + _apiKey;
+    HTTPClient http;
+
+    delay(100);
+    http.begin(getlink);
+    int httpCode = http.GET();
+
+    String response;
+
+    if (httpCode > 0)
+    {
+        response = http.getString();
+    }
+
+    http.end();
+
+    return response;
+}
+
 String HYPERWISOR_IOT::extractor(String data, String key)
 {
 
