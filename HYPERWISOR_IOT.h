@@ -15,6 +15,8 @@ public:
     String get_schema();
     String update_schema(String data);
     String extractor(String data, String key);
+    String runiftdt();
+    String runscheule();
 
 private:
     bool initialized;
