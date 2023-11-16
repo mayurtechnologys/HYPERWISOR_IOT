@@ -90,7 +90,7 @@ String HYPERWISOR_IOT::get_schema()
 
 String HYPERWISOR_IOT::runiftdt()
 {
-    String getlink = "https://nikolaindustry.wixsite.com/hyperwisor/_functions/runifdt?apikey=" + _apiKey;
+    String getlink = "https://nikolaindustry.wixsite.com/hyperwisor/_functions/runiftdt?apikey=" + _apiKey;
     HTTPClient http;
 
     delay(100);
