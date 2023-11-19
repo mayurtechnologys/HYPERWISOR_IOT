@@ -86,7 +86,7 @@ void setup() {
   delay(500);
   preferences.begin("my-app", false);
   delay(500);
-  apikey = preferences.getString("apikey");
+  apikey = preferences.getString("apikey");   // if you have static APIKEY replace  apikey = "YOUR_API_KEY"; //get apikey from hyperwisor.com/dashboard
   userid = preferences.getString("userid");
   deviceid = preferences.getString("deviceid");
   ssid = preferences.getString("ssid");
