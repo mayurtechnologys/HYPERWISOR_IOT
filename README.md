@@ -30,20 +30,52 @@ const char* ssid = "YourWiFiSSID";
 const char* password = "YourWiFiPassword";
 const String apiKey = "YourAPIKey";
 
-HYPERWISOR_IOT httpController(apiKey);
+HYPERWISOR_IOT Yourproductname;
 
 void setup() {
-  // Initialize WiFi and establish connection
+  Serial.begin(115200);
+  Yourproductname.init(apikey);
+  // Connect to Wi-Fi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi!");
+
+  // Initialize the HYPERWISOR_IOT library
+  Yourproductname.init(apiKey);
 }
 
 void loop() {
+  // Check if connected to WiFi
   if (WiFi.status() == WL_CONNECTED) {
-    // Read sensor data and send to the server
-    String sensorData = // Create sensor data string
-    String response = httpController.sendData(sensorData);
+    // Read sensor data (replace with actual sensor data)
+    String sensorData = "temperature=25&humidity=50";
+
+    // Send sensor data to the server
+    String response = Yourproductname.sendData(sensorData);
+
     // Process the response
+    Serial.println("Server Response: " + response);
+
+    // Get and print sensor data from the server
+    String serverSensorData = Yourproductname.getsensordata();
+    Serial.println("Sensor Data from Server: " + serverSensorData);
+
+    // Get and print schema from the server
+    String serverSchema = Yourproductname.get_schema();
+    Serial.println("Schema from Server: " + serverSchema);
+
+    // ... add more functionality as needed
+
+    delay(5000); // Adjust the delay as per your requirements
+  } else {
+    Serial.println("Not connected to WiFi. Please check your connection.");
+    delay(1000);
   }
 }
+
 ```
 
 ## Contributing
